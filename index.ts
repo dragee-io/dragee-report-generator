@@ -5,3 +5,4 @@ export type ReportBuilder = {
 }
 
 export { JsonReportBuilder } from "./src/json-report-builder";
+export { HtmlReportBuilder } from "./src/html-report-builder";
