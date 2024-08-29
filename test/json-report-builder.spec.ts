@@ -3,9 +3,9 @@ import { JsonReportBuilder } from "..";
 import type { Report } from "@dragee-io/asserter-type";
 import { unlinkSync, rmdirSync } from "node:fs"
 
-const expectedResultFile = './test/expected-result/testreport';
-const testResultDir = 'test/test-result';
-const testResultFile = 'test/test-result/testreport';
+const expectedResultDir = 'test/expected-result/';
+const testResultDir = 'test/test-result/';
+const testResultFile = testResultDir + 'testreport';
 
 afterEach(() => {
     // Delete test file
@@ -56,8 +56,8 @@ describe('JsonReportBuilder', () => {
     test('JSON with multiple reports with errors', async () => {
         const reports: Report[] = [{
             errors: [
-                "The aggregate \"io.dragee.rules.relation.DrageeOne\" must at least contain a \"ddd/entity\" type dragee",
-                "The aggregate \"io.dragee.rules.relation.DrageeTwo\" must at least contain a \"ddd/entity\" type dragee"
+                'The aggregate "io.dragee.rules.relation.DrageeOne" must at least contain a "ddd/entity" type dragee',
+                'The aggregate "io.dragee.rules.relation.DrageeTwo" must at least contain a "ddd/entity" type dragee'
             ],
             namespace: "ddd",
             pass: true,
@@ -79,7 +79,7 @@ describe('JsonReportBuilder', () => {
         await JsonReportBuilder.buildReports(reports, testResultFile);
 
         const createdReport = await Promise.resolve(Bun.file(testResultFile + '.json').text());
-        const expectedReport = await Promise.resolve(Bun.file(expectedResultFile + '.json').text());
+        const expectedReport = await Promise.resolve(Bun.file(expectedResultDir + 'testreport.json').text());
 
         expect(createdReport).toEqual(expectedReport);  
     });

@@ -3,8 +3,8 @@ import { HtmlReportBuilder } from "..";
 import type { Report } from "@dragee-io/asserter-type";
 import { unlinkSync, rmdirSync } from "node:fs"
 
-const testResultDir = 'test/test-result';
-const testResultFile = 'test/test-result/testreport';
+const testResultDir = 'test/test-result/';
+const testResultFile = testResultDir + 'testreport';
 
 afterEach(() => {
     // Delete test file
@@ -28,7 +28,7 @@ describe('HtmlReportBuilder', () => {
         expect(createdReport).not.toContain('<pre class="mermaid">');
     });
     
-    test('JSON with multiple reports with no errors', async () => {
+    test('HTML with multiple reports with no errors', async () => {
         const reports: Report[] = [{
             errors: [],
             namespace: "ddd",
@@ -58,7 +58,7 @@ describe('HtmlReportBuilder', () => {
     });
 
     
-    test('JSON with multiple reports with errors', async () => {
+    test('HTML with multiple reports with errors', async () => {
         const reports: Report[] = [{
             errors: [
                 'The aggregate "io.dragee.rules.relation.DrageeOne" must at least contain a "ddd/entity" type dragee',
