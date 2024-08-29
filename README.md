@@ -39,3 +39,16 @@ Report generator for [dragee-cli](https://github.com/dragee-io/dragee-cli)
     </body>
 </html>
 ```
+
+### Markdown
+
+[Markdown Report builder](./src/markdown-report-builder.ts) with [mermaidjs](https://github.com/mermaid-js/mermaid) charts
+
+```markdown
+    ```mermaid
+        pie showData
+            title ddd - Rules
+            "Success": 7
+            "Errors": 0
+    ```
+```
