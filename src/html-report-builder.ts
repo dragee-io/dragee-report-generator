@@ -9,12 +9,18 @@ const generateHtmlReports = (reports: Report[]) =>
    `<!DOCTYPE html>
     <html>
         <body>
-            ${reports.map(reportHtml)}
-            <script type="module">
-                import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-            </script>
+            ${buildReportsBody(reports)}
         </body>
     </html>`;
+
+const buildReportsBody = (reports: Report[]) => {
+    if(!reports?.length) return '';
+    return `
+        ${reports.map(reportHtml).join('')}
+        <script type="module">
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        </script>`;
+}
 
 const reportHtml = (report: Report): string =>
     `<div>

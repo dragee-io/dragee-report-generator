@@ -22,8 +22,9 @@ describe('HtmlReportBuilder', () => {
         await HtmlReportBuilder.buildReports(reports, testResultFile);
         const createdReport = await Promise.resolve(Bun.file(testResultFile + '.html').text());
 
-        // No error, no chart
+        // No error, no chart, no mermaidjs
         expect(createdReport).not.toContain('error');
+        expect(createdReport).not.toContain('import mermaid');  
         expect(createdReport).not.toContain('<pre class="mermaid">');
     });
     
@@ -50,7 +51,8 @@ describe('HtmlReportBuilder', () => {
         await HtmlReportBuilder.buildReports(reports, testResultFile);
         const createdReport = await Promise.resolve(Bun.file(testResultFile + '.html').text());
 
-        // Charts, but no error
+        // Charts and mermaidjs, but no error
+        expect(createdReport).toContain('import mermaid');  
         expect(createdReport).toContain('<pre class="mermaid">');
         expect(createdReport).not.toContain('error');
     });
@@ -83,7 +85,8 @@ describe('HtmlReportBuilder', () => {
 
         const createdReport = await Promise.resolve(Bun.file(testResultFile + '.html').text());
 
-        // Charts and error list
+        // Charts, mermaidjs, and error list
+        expect(createdReport).toContain('import mermaid');  
         expect(createdReport).toContain('<pre class="mermaid">');
         expect(createdReport).toContain('The aggregate "io.dragee.rules.relation.DrageeOne" must at least contain a "ddd/entity" type dragee');
         expect(createdReport).toContain('The aggregate "io.dragee.rules.relation.DrageeTwo" must at least contain a "ddd/entity" type dragee');
