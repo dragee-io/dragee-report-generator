@@ -1,4 +1,4 @@
-import type { Report } from "@dragee-io/asserter-type";
+import type { Report, RuleError } from "@dragee-io/asserter-type";
 import type { ReportBuilder } from "..";
 
 export const HtmlReportBuilder: ReportBuilder = {
@@ -30,8 +30,8 @@ const reportHtml = (report: Report): string =>
     </div>
     `
 
-const generateErrorList = (errors: string[]): string => {
-    const errorsList = errors.map(e => `<li>${e}</li>`).join('')
+const generateErrorList = (errors: RuleError[]): string => {
+    const errorsList = errors.map(e => `<li>${e.drageeName}: ${e.message}</li>`).join('')
     return `<ul>${errorsList}</ul>`
 }
 

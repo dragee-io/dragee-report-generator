@@ -1,4 +1,4 @@
-import type { Report } from "@dragee-io/asserter-type";
+import type { Report, RuleError } from "@dragee-io/asserter-type";
 import type { ReportBuilder } from "..";
 
 export const JsonReportBuilder: ReportBuilder = {
@@ -8,7 +8,8 @@ export const JsonReportBuilder: ReportBuilder = {
 const generateJsonReports = (reports: Report[]) => JSON.stringify(extractErrors(reports), null, 4)
 
 const extractErrors = (reports: Report[]) => 
-    reports.flatMap(report => report.errors.map((error: string) => ({
+    reports.flatMap(report => report.errors.map((error: RuleError) => ({
         namespace: report.namespace,
-        error: error
+        drageeName: error.drageeName,
+        error: error.message
     })));

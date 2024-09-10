@@ -56,8 +56,13 @@ describe('JsonReportBuilder', () => {
     test('JSON with multiple reports with errors', async () => {
         const reports: Report[] = [{
             errors: [
-                'The aggregate "io.dragee.rules.relation.DrageeOne" must at least contain a "ddd/entity" type dragee',
-                'The aggregate "io.dragee.rules.relation.DrageeTwo" must at least contain a "ddd/entity" type dragee'
+                {
+                    drageeName: 'io.dragee.rules.relation.DrageeOne',
+                    message: 'The aggregate must at least contain a "ddd/entity" type dragee'
+                },{
+                    drageeName: 'io.dragee.rules.relation.DrageeTwo',
+                    message: 'The aggregate must at least contain a "ddd/entity" type dragee'
+                }
             ],
             namespace: "ddd",
             pass: true,
@@ -67,7 +72,10 @@ describe('JsonReportBuilder', () => {
                 passCount: 5
             }
         },{
-            errors: ["Test error"],
+            errors: [{
+                drageeName: 'DrageeTestError',
+                message: 'Test error'
+            }],
             namespace: "test",
             pass: true,
             stats: {
