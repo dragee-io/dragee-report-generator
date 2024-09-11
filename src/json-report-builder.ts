@@ -10,6 +10,7 @@ const generateJsonReports = (reports: Report[]) => JSON.stringify(extractErrors(
 const extractErrors = (reports: Report[]) => 
     reports.flatMap(report => report.errors.map((error: RuleError) => ({
         namespace: report.namespace,
+        ruleId: error.ruleId,
         drageeName: error.drageeName,
         error: error.message
     })));

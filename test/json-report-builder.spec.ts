@@ -58,10 +58,12 @@ describe('JsonReportBuilder', () => {
             errors: [
                 {
                     drageeName: 'io.dragee.rules.relation.DrageeOne',
-                    message: 'The aggregate must at least contain a "ddd/entity" type dragee'
+                    message: 'This aggregate must at least contain a "ddd/entity" type dragee',
+                    ruleId: 'ddd/aggregates-allowed-dependencies'
                 },{
                     drageeName: 'io.dragee.rules.relation.DrageeTwo',
-                    message: 'The aggregate must at least contain a "ddd/entity" type dragee'
+                    message: 'This aggregate must at least contain a "ddd/entity" type dragee',
+                    ruleId: 'ddd/aggregates-allowed-dependencies'
                 }
             ],
             namespace: "ddd",
@@ -74,7 +76,8 @@ describe('JsonReportBuilder', () => {
         },{
             errors: [{
                 drageeName: 'DrageeTestError',
-                message: 'Test error'
+                message: 'Test error',
+                ruleId: 'test-error'
             }],
             namespace: "test",
             pass: true,

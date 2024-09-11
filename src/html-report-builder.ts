@@ -31,7 +31,7 @@ const reportHtml = (report: Report): string =>
     `
 
 const generateErrorList = (errors: RuleError[]): string => {
-    const errorsList = errors.map(e => `<li>${e.drageeName}: ${e.message}</li>`).join('')
+    const errorsList = errors.map(e => `<li>${e.drageeName}: (${e.ruleId}) ${e.message}</li>`).join('')
     return `<ul>${errorsList}</ul>`
 }
 

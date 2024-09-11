@@ -1,16 +1,19 @@
 [
     {
         "namespace": "ddd",
+        "ruleId": "ddd/aggregates-allowed-dependencies",
         "drageeName": "io.dragee.rules.relation.DrageeOne",
-        "error": "The aggregate must at least contain a \"ddd/entity\" type dragee"
+        "error": "This aggregate must at least contain a \"ddd/entity\" type dragee"
     },
     {
         "namespace": "ddd",
+        "ruleId": "ddd/aggregates-allowed-dependencies",
         "drageeName": "io.dragee.rules.relation.DrageeTwo",
-        "error": "The aggregate must at least contain a \"ddd/entity\" type dragee"
+        "error": "This aggregate must at least contain a \"ddd/entity\" type dragee"
     },
     {
         "namespace": "test",
+        "ruleId": "test-error",
         "drageeName": "DrageeTestError",
         "error": "Test error"
     }

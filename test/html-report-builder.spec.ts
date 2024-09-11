@@ -63,10 +63,12 @@ describe('HtmlReportBuilder', () => {
             errors: [
                 {
                     drageeName: 'io.dragee.rules.relation.DrageeOne',
-                    message: 'The aggregate must at least contain a "ddd/entity" type dragee'
+                    message: 'This aggregate must at least contain a "ddd/entity" type dragee',
+                    ruleId: 'ddd/aggregates-allowed-dependencies'
                 },{
                     drageeName: 'io.dragee.rules.relation.DrageeTwo',
-                    message: 'The aggregate must at least contain a "ddd/entity" type dragee'
+                    message: 'This aggregate must at least contain a "ddd/entity" type dragee',
+                    ruleId: 'ddd/aggregates-allowed-dependencies'
                 }
             ],
             namespace: "ddd",
@@ -79,7 +81,8 @@ describe('HtmlReportBuilder', () => {
         },{
             errors: [{
                 drageeName: 'DrageeTestError',
-                message: 'Test error'
+                message: 'Test error',
+                ruleId: 'test-error'
             }],
             namespace: "test",
             pass: true,
@@ -96,8 +99,8 @@ describe('HtmlReportBuilder', () => {
         // Charts, mermaidjs, and error list
         expect(createdReport).toContain('import mermaid');  
         expect(createdReport).toContain('<pre class="mermaid">');
-        expect(createdReport).toContain('io.dragee.rules.relation.DrageeOne: The aggregate must at least contain a "ddd/entity" type dragee');
-        expect(createdReport).toContain('io.dragee.rules.relation.DrageeTwo: The aggregate must at least contain a "ddd/entity" type dragee');
-        expect(createdReport).toContain('DrageeTestError: Test error');
+        expect(createdReport).toContain('io.dragee.rules.relation.DrageeOne: (ddd/aggregates-allowed-dependencies) This aggregate must at least contain a "ddd/entity" type dragee');
+        expect(createdReport).toContain('io.dragee.rules.relation.DrageeTwo: (ddd/aggregates-allowed-dependencies) This aggregate must at least contain a "ddd/entity" type dragee');
+        expect(createdReport).toContain('DrageeTestError: (test-error) Test error');
     });
 })
