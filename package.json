@@ -12,6 +12,6 @@
     "typescript": "^5.5.0"
   },
   "dependencies": {
-    "@dragee-io/asserter-type": "https://github.com/MichaelBernasinski/dragee-asserter-model"
+    "@dragee-io/type": "https://github.com/MichaelBernasinski/dragee-model"
   }
 }

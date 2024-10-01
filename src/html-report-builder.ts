@@ -1,4 +1,4 @@
-import type { Report, RuleError } from "@dragee-io/asserter-type";
+import type { Report, RuleError } from "@dragee-io/type/asserter";
 import type { ReportBuilder } from "..";
 
 export const HtmlReportBuilder: ReportBuilder = {

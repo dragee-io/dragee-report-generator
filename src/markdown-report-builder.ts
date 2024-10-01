@@ -1,4 +1,4 @@
-import type { Report } from "@dragee-io/asserter-type";
+import type { Report } from "@dragee-io/type/asserter";
 import type { ReportBuilder } from "..";
 
 export const MarkdownReportBuilder: ReportBuilder = {
