@@ -1,4 +1,4 @@
-import type { Report } from "@dragee-io/asserter-type";
+import type { Report } from "@dragee-io/type/asserter";
 
 export type ReportBuilder = {
     buildReports: (reports: Report[], filePath: string) => Promise<void>

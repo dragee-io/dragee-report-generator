@@ -1,6 +1,6 @@
 import { afterEach, afterAll, describe, expect, test } from "bun:test";
 import { MarkdownReportBuilder } from "..";
-import type { Report } from "@dragee-io/asserter-type";
+import type { Report } from "@dragee-io/type/asserter";
 import { unlinkSync, rmdirSync } from "node:fs"
 
 const expectedResultDir = 'test/expected-result/';
