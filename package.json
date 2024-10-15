@@ -1,21 +1,21 @@
 {
-  "name": "@dragee-io/report-generator",
-  "module": "index.ts",
-  "type": "module",
-  "version": "0.0.1",
-	"scripts": {
-		"format": "biome format --write",
-		"lint": "biome lint --write",
-		"check": "biome check --write"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.9.0",
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.5.0"
-  },
-  "dependencies": {
-    "@dragee-io/type": "https://github.com/MichaelBernasinski/dragee-model"
-  }
+    "name": "@dragee-io/report-generator",
+    "module": "index.ts",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "format": "biome format --write",
+        "lint": "biome lint --write",
+        "check": "biome check --write"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^1.9.0",
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5.5.0"
+    },
+    "dependencies": {
+        "@dragee-io/type": "https://github.com/MichaelBernasinski/dragee-model"
+    }
 }
