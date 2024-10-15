@@ -16,6 +16,6 @@
         "typescript": "^5.5.0"
     },
     "dependencies": {
-        "@dragee-io/type": "https://github.com/MichaelBernasinski/dragee-model"
+        "@dragee-io/type": "https://github.com/dragee-io/dragee-model"
     }
 }
